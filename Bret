@@ -1,0 +1,43 @@
+import java.awt.*;
+public class Circle implements Drawable
+{
+    double diameter;
+    int x;
+    int y;
+    Color color;
+
+    public Circle(double diameter, int x, int y, Color color)
+    {
+        this.diameter = diameter;
+        this.x = x;
+        this.y = y;
+        this.color = color;
+    }
+
+    public String describe()
+    {
+        return ("Location: \nX: " + x + "Y: " + y + "\nDiameter: "
+                + diameter + "\nColor: " + color);
+    }
+
+    public void draw(Graphics g)
+    {
+        g.setColor(color);
+        g.fillOval(x, y, (int)diameter, (int)diameter);
+    }
+}
+
+import java.awt.*;
+
+public interface Drawable
+{
+    default void draw(Graphics g)
+    {
+
+    }
+
+    default String describe()
+    {
+        return "this";
+    }
+}
